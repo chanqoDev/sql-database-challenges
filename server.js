@@ -1,7 +1,6 @@
 const http = require("http");
 const express = require("express");
 const app = express();
-// const mysql = require("mysql");
 const mysql = require("mysql2");
 const cors = require("cors");
 app.use(cors());
@@ -37,24 +36,23 @@ db.connect((err) => {
  
 // Create table if it doesn't exist
 const createTableQuery = `
-  CREATE TABLE IF NOT EXISTS Products (
-    product_id INT,
-    low_fats ENUM('Y', 'N'),
-    recyclable ENUM('Y','N')
+  CREATE TABLE IF NOT EXISTS Customer (
+    id int, name varchar(25), referee_id int
   )
 `;
 
-const truncateTableQuery = `TRUNCATE TABLE Products`;
+const truncateTableQuery = `TRUNCATE TABLE Customer`;
 
 const insertDataQuery = `
-  INSERT INTO Products (product_id, low_fats, recyclable)
-  VALUES
-    ('0', 'Y', 'N'),
-    ('1', 'Y', 'Y'),
-    ('2', 'N', 'Y'),
-    ('3', 'Y', 'Y'),
-    ('4', 'N', 'N')
-`;
+INSERT INTO Customer (id, name, referee_id)
+VALUES
+    ('1', 'Will', NULL),
+    ('2', 'Jane', NULL),
+    ('3', 'Alex', '2'),
+    ('4', 'Bill', NULL),
+    ('5', 'Zack', '1'),
+    ('6', 'Mark', '2');
+`
 
 // Execute queries
 db.query(createTableQuery, (err, result) => {

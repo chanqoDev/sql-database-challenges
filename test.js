@@ -15,7 +15,7 @@ db.connect((err) => {
   console.log('MySQL Connected..');
 });
 
-const query = 'SELECT * FROM Products';
+const query = "SELECT name FROM Customer WHERE referee_id <> 2 OR referee_id IS NULL"; 
 
 
 db.query(query, (err, results) => {
