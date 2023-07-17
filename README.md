@@ -1,8 +1,5 @@
 # sql-database-challenges
 
-<summary> Challenge 1 => Table: Products <summary>
-# sql-database-challenges
-
 <details>
   <summary>Challenge 1 => Table: Products</summary>
 
