@@ -15,7 +15,7 @@ db.connect((err) => {
   console.log('MySQL Connected..');
 });
 
-const query = "SELECT name FROM Customer WHERE referee_id <> 2 OR referee_id IS NULL"; 
+const query = "SELECT name, population, area FROM World WHERE (area>=3000000 OR population>=25000000)"; 
 
 
 db.query(query, (err, results) => {

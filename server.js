@@ -35,23 +35,18 @@ db.connect((err) => {
 });
  
 // Create table if it doesn't exist
-const createTableQuery = `
-  CREATE TABLE IF NOT EXISTS Customer (
-    id int, name varchar(25), referee_id int
-  )
-`;
+const createTableQuery = `CREATE TABLE IF NOT EXISTS World ( name varchar(255), continent varchar(255), area int, population int, gdp bigint)`;
 
-const truncateTableQuery = `TRUNCATE TABLE Customer`;
+const truncateTableQuery = `TRUNCATE TABLE World`;
 
 const insertDataQuery = `
-INSERT INTO Customer (id, name, referee_id)
+INSERT INTO World (name, continent, area, population, gdp)
 VALUES
-    ('1', 'Will', NULL),
-    ('2', 'Jane', NULL),
-    ('3', 'Alex', '2'),
-    ('4', 'Bill', NULL),
-    ('5', 'Zack', '1'),
-    ('6', 'Mark', '2');
+    ('Afghanistan', 'Asia', '652230', '25500100', '20343000000'),
+    ('Albania', 'Europe', '28748', '2831741', '12960000000'),
+('Algeria', 'Africa', '2381741', '37100000', '188681000000'),
+    ('Andorra', 'Europe', '468', '78115', '3712000000'),
+    ('Angola', 'Africa', '1246700', '20609294', '100990000000');
 `
 
 // Execute queries
